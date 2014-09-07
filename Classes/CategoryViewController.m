@@ -26,7 +26,7 @@
 	
 	CLLocationManager *tempManager = [[CLLocationManager alloc] init];
 	self.locationManager = tempManager;
-	[tempManager release], tempManager = nil;
+	tempManager = nil;
 	self.locationManager.delegate = self;
 	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	self.locationManager.headingFilter = 1;
@@ -53,7 +53,6 @@
 							  initWithTitle:@"Error" message:@"Must begin tracking first!" delegate:self
 							  cancelButtonTitle:@"Return" otherButtonTitles:nil];
 		[alert show];
-		[alert release];
 	}
 
 }
@@ -135,6 +134,5 @@
 		[self.locationManager stopUpdatingLocation];
 	}
 
-    [super dealloc];
 }
 @end

@@ -13,6 +13,6 @@
 @interface CategoryListViewController : UITableViewController {
 }
 
-@property (nonatomic, retain) IBOutlet CategoryList *categories;
+@property (nonatomic, strong) IBOutlet CategoryList *categories;
 
 @end

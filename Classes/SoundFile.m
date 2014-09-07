@@ -52,7 +52,7 @@
 {
 	AudioFileID outAFID;
 	NSURL *afURL = [NSURL fileURLWithPath:filePath];
-	AudioFileOpenURL((CFURLRef)afURL, kAudioFileReadPermission, 0, &outAFID);
+	AudioFileOpenURL((__bridge CFURLRef)afURL, kAudioFileReadPermission, 0, &outAFID);
 	
 	return outAFID;
 }

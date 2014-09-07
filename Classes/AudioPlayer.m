@@ -69,7 +69,7 @@
 		for (NSNumber *bufferNumber in point.soundFile.bufferList)
 		{
 			ALuint bufferID = (ALuint)[bufferNumber unsignedIntegerValue];
-			alBufferData(bufferID, AL_FORMAT_MONO16, outData, BUFFER_SIZE, 44100);
+			alBufferData(bufferID, AL_FORMAT_MONO16, (__bridge const ALvoid *)(outData), BUFFER_SIZE, 44100);
 		}
 	}
 }
@@ -180,8 +180,7 @@
 		return (point.soundFile.loops);
 	}
 	
-	OSStatus result = noErr;
-	result = AudioFileReadBytes(fileID, false, startOffset, &bytesToRead, outData);
+	AudioFileReadBytes(fileID, false, startOffset, &bytesToRead, outData);
 	alBufferData((ALuint)bufferID, AL_FORMAT_MONO16, outData, bytesToRead, 44100);
 	
 	free(outData);
@@ -209,12 +208,12 @@
 
 -(void)rotateBufferThread:(PointOfInterest *)point
 {
-	NSAutoreleasePool * apool = [[NSAutoreleasePool alloc] init];
-	BOOL stillPlaying = YES;
-	while (stillPlaying) {
-		stillPlaying = [self rotateBufferForStreamingSound:point];
+	@autoreleasepool {
+		BOOL stillPlaying = YES;
+		while (stillPlaying) {
+			stillPlaying = [self rotateBufferForStreamingSound:point];
+		}
 	}
-	[apool release];
 	alSourceStop(point.activeSource.sourceID);
 }
 

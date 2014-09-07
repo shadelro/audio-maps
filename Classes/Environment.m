@@ -27,35 +27,52 @@
 @synthesize activeListener = activeListener_;
 @synthesize isPlaying = isPlaying_;
 
+-(id)init
+{
+    self = [super init];
+    
+    return self;
+}
+
 -(id)initEnvironmentWithCategory:(NSString *)category
 {
-	self.tracking = NO;
-	self.isPlaying = NO;
+    self = [super init];
+    
+    if (self) {
+
+        self.tracking = NO;
+        self.isPlaying = NO;
 	
-	// init activeListener
-	self.activeListener = [[Listener alloc] initListener];
+        // init activeListener
+        self.activeListener = [[Listener alloc] initListener];
 	
-	// init activeCategory (category inits points, points init soundFiles)
-	self.activeCategory = [[Category alloc] initCategoryWithCategory:category];
+        // init activeCategory (category inits points, points init soundFiles)
+        self.activeCategory = [[Category alloc] initCategoryWithCategory:category];
 	
-	// define maxSources
-	if (MAX_SOURCES < [self.activeCategory.pointArray count]) self.maxSources = MAX_SOURCES;
-	else self.maxSources = [self.activeCategory.pointArray count];
+        // define maxSources
+        if (MAX_SOURCES < [self.activeCategory.pointArray count])
+        {
+            self.maxSources = MAX_SOURCES;
+        }
+        else {
+            self.maxSources = [self.activeCategory.pointArray count];
+        }
 	
-	// define maxDistance
-	self.maxDistance = MAX_DISTANCE;
+        // define maxDistance
+        self.maxDistance = MAX_DISTANCE;
 	
-	// init audioPlayer
-	self.audioPlayer = [[AudioPlayer alloc] initAudioPlayer];
+        // init audioPlayer
+        self.audioPlayer = [[AudioPlayer alloc] initAudioPlayer];
 	
-	// init sourceList
-	self.sourceList = [[NSArray alloc] initWithArray:[self generateSourcesForEnvironment]];
+        // init sourceList
+        self.sourceList = [[NSArray alloc] initWithArray:[self generateSourcesForEnvironment]];
 	
-	// prebuffer (all) soundFiles
-	[self.audioPlayer preLoadBuffersForCategory:self.activeCategory];
+        // prebuffer (all) soundFiles
+        [self.audioPlayer preLoadBuffersForCategory:self.activeCategory];
 	
-	// prelink sources to soundFiles
-	[self.audioPlayer preLinkSourcesForEnvironment:self];
+        // prelink sources to soundFiles
+        [self.audioPlayer preLinkSourcesForEnvironment:self];
+    }
 	
 	return self;
 }
@@ -68,7 +85,7 @@
 	{
 		Source *source = [[Source alloc] initSource];
 		[temp addObject:source];
-		[source release], source = nil;
+		source = nil;
 	}
 	
 	return temp;
@@ -140,10 +157,6 @@
 -(void)updateSourceLocations:(CLLocation *)newListenerLocation
 {
 	// update and normalize each source location
-	NSString *closestSource = @"test";
-	float smallestDistance = 1000;
-	float closestLat = 1000;
-	float closestLon = 1000;
 	float maxVal = 0;
 	
 	
@@ -159,18 +172,14 @@
 		point.currentDistance = currentDistance;
 		
 		
-		if (currentDistance < smallestDistance)
-		{
-			smallestDistance = currentDistance;
-			closestSource = point.pointName;
-			closestLat = point.defaultX;
-			closestLon = point.defaultZ;
-		}
-		
 		if (fabsf(sourceXDir) > fabsf(sourceYDir))
+        {
 			maxVal = fabsf(sourceXDir);
+        }
 		else
+        {
 			maxVal = fabsf(sourceYDir);
+        }
 		
 		ALfloat normSourceXDir = sourceXDir / maxVal;
 		ALfloat normSourceYDir = sourceYDir / maxVal;
@@ -232,8 +241,6 @@
 	
 	float smallestDistanceMeters = [userLoc distanceFromLocation:poiLoc];
 	
-	[poiLoc release];
-	[userLoc release];
 	
 	return smallestDistanceMeters;
 }

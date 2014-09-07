@@ -33,7 +33,6 @@
         NSString *contents = [NSString stringWithContentsOfFile:filePath encoding:&encoding error:&error];
         
 		NSArray *chunks = [contents componentsSeparatedByString:@":"];
-		[contents release], contents = nil;
 		self.defaultX = [[chunks objectAtIndex:2] floatValue];
 		self.defaultZ = [[chunks objectAtIndex:0] floatValue];
 		self.currentX = self.defaultX;
@@ -42,7 +41,7 @@
 		NSString *soundFileURL = [NSString stringWithFormat:@"%@.caf",[filePath stringByDeletingPathExtension]];
 		SoundFile *tempSoundFile = [[SoundFile alloc] initWithFile:soundFileURL];
 		self.soundFile = tempSoundFile;
-		[tempSoundFile release], tempSoundFile = nil;
+		tempSoundFile = nil;
 		
 		self.currentDistance = 0;
 	}

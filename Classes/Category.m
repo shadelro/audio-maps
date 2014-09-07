@@ -34,7 +34,6 @@
 	{
 		PointOfInterest *point = [[PointOfInterest alloc] initWithFile:filePath];
 		[temp addObject:point];
-		[point release];
 	}
 	
 	return [[NSMutableArray alloc] initWithArray:temp];
