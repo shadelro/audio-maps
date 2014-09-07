@@ -28,7 +28,6 @@
 	self.listenerHeading = newHeading;
 	
 	float newRotation = self.listenerHeading.trueHeading;
-	
 	float newRotationRad = newRotation * M_PI / 180;
 	float newXDir = sin(newRotationRad);
 	float newZDir = cos(newRotationRad * -1) * -1;
