@@ -16,6 +16,7 @@
 		28C286E10D94DF7D0034E888 /* CategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* CategoryListViewController.m */; };
 		28F335F11007B36200424DE2 /* CategoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* CategoryListViewController.xib */; };
 		A8C6DCEA19BA60E100535709 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8C6DCE919BA60E100535709 /* Default-568h@2x.png */; };
+		A8DE51D119BC216100DEEC20 /* CategoryList.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DE51D019BC216100DEEC20 /* CategoryList.m */; };
 		CE17CE8313F0CC860077D88E /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17CE8213F0CC860077D88E /* Environment.m */; };
 		CE2A350F13EA27100077C22A /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A350D13EA27100077C22A /* MenuViewController.m */; };
 		CE2A351013EA27100077C22A /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2A350E13EA27100077C22A /* MenuViewController.xib */; };
@@ -29,7 +30,6 @@
 		CE5D273514624CBD0051CCD3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5D273414624CBD0051CCD3 /* Icon.png */; };
 		CE7AB9E513E7D42B00E8DD43 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7AB9E313E7D42B00E8DD43 /* CategoryViewController.m */; };
 		CE7AB9E613E7D42B00E8DD43 /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7AB9E413E7D42B00E8DD43 /* CategoryViewController.xib */; };
-		CE7AB9FE13E7D45700E8DD43 /* CategoryList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7AB9FD13E7D45700E8DD43 /* CategoryList.m */; };
 		CEB7843A13F0DDCD00311F22 /* categories in Resources */ = {isa = PBXBuildFile; fileRef = CEB7839013F0DDCC00311F22 /* categories */; };
 		CEC9643313F0FDE100201EF1 /* Listener.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9643213F0FDE100201EF1 /* Listener.m */; };
 		CEE0C46B13E7D841006E6FBE /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE0C46A13E7D841006E6FBE /* Category.m */; };
@@ -51,6 +51,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* AudioMaps-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AudioMaps-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A8C6DCE919BA60E100535709 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A8DE51CF19BC216100DEEC20 /* CategoryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryList.h; sourceTree = "<group>"; };
+		A8DE51D019BC216100DEEC20 /* CategoryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryList.m; sourceTree = "<group>"; };
 		CE17CE8113F0CC860077D88E /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
 		CE17CE8213F0CC860077D88E /* Environment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Environment.m; sourceTree = "<group>"; };
 		CE2A350C13EA27100077C22A /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -71,8 +73,6 @@
 		CE7AB9E213E7D42B00E8DD43 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryViewController.h; path = Classes/CategoryViewController.h; sourceTree = "<group>"; };
 		CE7AB9E313E7D42B00E8DD43 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryViewController.m; path = Classes/CategoryViewController.m; sourceTree = "<group>"; };
 		CE7AB9E413E7D42B00E8DD43 /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CategoryViewController.xib; path = Classes/CategoryViewController.xib; sourceTree = "<group>"; };
-		CE7AB9FC13E7D45700E8DD43 /* CategoryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryList.h; path = ../CategoryList.h; sourceTree = "<group>"; };
-		CE7AB9FD13E7D45700E8DD43 /* CategoryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryList.m; path = ../CategoryList.m; sourceTree = "<group>"; };
 		CEB7839013F0DDCC00311F22 /* categories */ = {isa = PBXFileReference; lastKnownFileType = folder; name = categories; path = "../audio-maps/categories"; sourceTree = "<group>"; };
 		CEC9643113F0FDE100201EF1 /* Listener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Listener.h; sourceTree = "<group>"; };
 		CEC9643213F0FDE100201EF1 /* Listener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Listener.m; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CE7AB9FC13E7D45700E8DD43 /* CategoryList.h */,
-				CE7AB9FD13E7D45700E8DD43 /* CategoryList.m */,
+				A8DE51CF19BC216100DEEC20 /* CategoryList.h */,
+				A8DE51D019BC216100DEEC20 /* CategoryList.m */,
 				CEC9643113F0FDE100201EF1 /* Listener.h */,
 				CEC9643213F0FDE100201EF1 /* Listener.m */,
 				CE5A7B8613EA622A00ACA87B /* Source.h */,
@@ -292,13 +292,13 @@
 				1D3623260D0F684500981E51 /* AudioMapsAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* CategoryListViewController.m in Sources */,
 				CE7AB9E513E7D42B00E8DD43 /* CategoryViewController.m in Sources */,
-				CE7AB9FE13E7D45700E8DD43 /* CategoryList.m in Sources */,
 				CEE0C46B13E7D841006E6FBE /* Category.m in Sources */,
 				CEE0C47213E7D882006E6FBE /* PointOfInterest.m in Sources */,
 				CE2A350F13EA27100077C22A /* MenuViewController.m in Sources */,
 				CE2A36F513EA4B130077C22A /* SoundFile.m in Sources */,
 				CE5A7B4113EA5CC700ACA87B /* Constants.m in Sources */,
 				CE5A7B8813EA622A00ACA87B /* Source.m in Sources */,
+				A8DE51D119BC216100DEEC20 /* CategoryList.m in Sources */,
 				CE5A7BA813EA64EC00ACA87B /* AudioPlayer.m in Sources */,
 				CE17CE8313F0CC860077D88E /* Environment.m in Sources */,
 				CEC9643313F0FDE100201EF1 /* Listener.m in Sources */,
