@@ -23,11 +23,8 @@
 	[super viewDidLoad];
 	self.title = self.activeCategory;
 	
-	
-	CLLocationManager *tempManager = [[CLLocationManager alloc] init];
-	self.locationManager = tempManager;
-	tempManager = nil;
-	self.locationManager.delegate = self;
+	self.locationManager = [[CLLocationManager alloc] init];
+	[self.locationManager setDelegate:self];
 	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	self.locationManager.headingFilter = 1;
 	
@@ -87,6 +84,7 @@
 	}
 	else
 	{
+        [self.locationManager requestWhenInUseAuthorization];
 		self.environment.tracking = YES;
 		[self.locationManager startUpdatingHeading];
 		[self.locationManager startUpdatingLocation];
@@ -94,20 +92,21 @@
 	}
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newListenerLocation fromLocation:(CLLocation *)previousListenerLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-	[self.environment updateSourceLocations:newListenerLocation];
-	
-	xPos.text = [NSString stringWithFormat:@"%.5f",newListenerLocation.coordinate.latitude];
-	zPos.text = [NSString stringWithFormat:@"%.5f",newListenerLocation.coordinate.longitude];
-
-	sourceName.text = [self.environment getClosestPointName];
-	sourceDistance.text = [NSString stringWithFormat:@"%.1f meters",[self.environment getClosestPointDistance:newListenerLocation.coordinate.latitude withLon:newListenerLocation.coordinate.longitude]];
+    CLLocation *location = [locations lastObject];
+    [self.environment updateSourceLocations:location];
+    
+    xPos.text = [NSString stringWithFormat:@"%.5f",location.coordinate.latitude];
+    zPos.text = [NSString stringWithFormat:@"%.5f",location.coordinate.longitude];
+    
+    sourceName.text = [self.environment getClosestPointName];
+    sourceDistance.text = [NSString stringWithFormat:@"%.1f meters",[self.environment getClosestPointDistance:location.coordinate.latitude withLon:location.coordinate.longitude]];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newListenerHeading
 {
-	[self.environment updateListenerHeading:newListenerHeading];
+    [self.environment updateListenerHeading:newListenerHeading];
 	
 	//[environment updateSourceGains:newListenerHeading];
 	
@@ -116,7 +115,7 @@
 
 -(void)locationManager:(CLLocationManager*)manager didFailWithError:(NSError*)error
 {
-	if ([error code] == kCLErrorDenied)
+    if ([error code] == kCLErrorDenied)
     {
 		[self.locationManager stopUpdatingLocation];
     }
